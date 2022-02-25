@@ -1,5 +1,5 @@
-import { Fortifiable } from '@civ-clone/base-unit-type-fortifiable/Fortifiable';
+import Naval from '@civ-clone/base-unit-type-naval/Naval';
 
-export class Submarine extends Fortifiable {}
+export class Submarine extends Naval {}
 
 export default Submarine;

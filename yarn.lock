@@ -16,6 +16,13 @@
   dependencies:
     "@civ-clone/core-unit" "^0.1.0"
 
+"@civ-clone/base-unit-type-naval@^0.1.0":
+  "integrity" "sha512-CU1GZF6K4O8KOm/zjEjeYnEFWWoGoJBr+dRFwOcBIU/9Su4ctYwuw+tnimjwzoqQcvmMHdZJc8zkRwPVYw1WKg=="
+  "resolved" "https://registry.npmjs.org/@civ-clone/base-unit-type-naval/-/base-unit-type-naval-0.1.0.tgz"
+  "version" "0.1.0"
+  dependencies:
+    "@civ-clone/core-unit" "^0.1.0"
+
 "@civ-clone/core-city@^0.1.0":
   "integrity" "sha512-yn/ZWmomdtiBaljVOzam7OkgFPIGVMH8UPERY/hlceposoYl7Fslb1GTdM7ZA2kJBXhtR2JUpgX3tvHI5DtQfQ=="
   "resolved" "https://registry.npmjs.org/@civ-clone/core-city/-/core-city-0.1.0.tgz"

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Submarine = void 0;
-const Fortifiable_1 = require("@civ-clone/base-unit-type-fortifiable/Fortifiable");
-class Submarine extends Fortifiable_1.Fortifiable {
+const Naval_1 = require("@civ-clone/base-unit-type-naval/Naval");
+class Submarine extends Naval_1.default {
 }
 exports.Submarine = Submarine;
 exports.default = Submarine;

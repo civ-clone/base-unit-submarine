@@ -1,6 +1,7 @@
 {
   "name": "@civ-clone/base-unit-submarine",
   "version": "0.1.1",
+  "description": "The Submarine unit type.",
   "repository": "git@github.com:civ-clone/base-unit-submarine.git",
   "keywords": [
     "typescript",
@@ -11,16 +12,31 @@
   "private": false,
   "scripts": {
     "build": "npm run ts:compile && npm run prettier:format",
-    "prettier:check": "prettier --config .prettierrc '**/*.ts'",
+    "prettier:check": "prettier --config .prettierrc --check '**/*.ts'",
     "prettier:format": "prettier --config .prettierrc '**/*.ts' --write",
+    "test": "ts-mocha ./tests/*.test.ts",
     "ts:compile": "tsc --build tsconfig.json"
   },
   "devDependencies": {
-    "@types/node": "^14.11.2",
-    "prettier": "^2.1.2",
-    "typescript": "^4.0.3"
+    "@civ-clone/base-unit-type-naval": "^0.1.0",
+    "@civ-clone/core-data-object": "^0.1.19",
+    "@civ-clone/core-game": "^0.1.17",
+    "@civ-clone/core-player": "^0.1.10",
+    "@civ-clone/core-rule": "^0.1.9",
+    "@civ-clone/core-unit": "^0.1.32",
+    "@civ-clone/core-unit-transport": "^0.1.10",
+    "@civ-clone/core-world": "^0.1.24",
+    "@civ-clone/core-yield": "^0.1.0",
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^16.0.0",
+    "chai": "^4.0.0",
+    "mocha": "^10.0.0",
+    "prettier": "^2.8.8",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^4.0.0"
   },
   "dependencies": {
-    "@civ-clone/base-unit-type-naval": "^0.1.0"
+    "@civ-clone/base-unit-type-naval-transport": "^0.1.3"
   }
 }

@@ -75,6 +75,8 @@ describe('Submarine as a NavalTransport', (): void => {
     expect(submarine.hasCapacity()).false;
     expect(submarine.hasCargo()).false;
     expect(submarine.cargo()).deep.equal([]);
+    // No `CanStow` rule applies, so `canStow` agrees to anything: capacity 0 is what keeps it empty.
+    expect(submarine.canStow(passenger)).true;
     expect(submarine.stow(passenger, null as unknown as Tile)).false;
     expect(transportRegistry.entries()).deep.equal([]);
   });

@@ -14,6 +14,7 @@ import Unit from '@civ-clone/core-unit/Unit';
 import UnitYield from '@civ-clone/core-unit/Rules/Yield';
 import YieldValue from '@civ-clone/core-yield/Yield';
 import { expect } from 'chai';
+import generateInheritance from '@civ-clone/core-data-object/lib/generateInheritance';
 import CanStow from '@civ-clone/core-unit-transport/Rules/CanStow';
 
 // The Submarine as a `NavalTransport` (civ-clone/web-renderer#1007, M2b): Civ2's carries missiles, Civ1's carries
@@ -110,13 +111,28 @@ describe('Submarine as a NavalTransport', (): void => {
     expect(submarine.cargo()).deep.equal([passenger]);
   });
 
-  it('saves and sends exactly what it did as a plain naval unit', (): void => {
+  it('saves exactly what it did as a plain naval unit, and sends the same fields', (): void => {
     const { args } = setup(),
       submarine = new Submarine(...args),
       before = new NavalSubmarine(...args);
 
     expect(submarine.stateKeys()).deep.equal(before.stateKeys());
     expect(submarine.keys()).deep.equal(before.keys());
+  });
+
+  it("names its new ancestors in the client payload's class chain", (): void => {
+    const { args } = setup();
+
+    // `toPlainObject` sends `keys()` (unchanged, above) and the class chain as `__`. A client asking whether it is a
+    //  `Naval` or a `Unit` gets the same answer; one asking about `NavalTransport` or `Transport` now finds them.
+    expect(generateInheritance(new Submarine(...args))).deep.equal(
+      generateInheritance(new NavalSubmarine(...args)).flatMap(
+        (name: string): string[] =>
+          name === 'NavalSubmarine'
+            ? ['Submarine', 'NavalTransport', 'Transport']
+            : [name]
+      )
+    );
   });
 
   it('gets its transport collaborators from Game.inject when loaded from a save made before it was a transport', (): void => {
